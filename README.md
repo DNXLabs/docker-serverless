@@ -5,7 +5,8 @@
 
 Docker image with:
 
-- python3
+- Node 16
+- Python3
 - serverless
 - awscli
 - aws-sam-cli
