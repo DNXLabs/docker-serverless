@@ -28,3 +28,5 @@ RUN apk --no-cache update && \
     yarn global add $SERVERLESS
 
 WORKDIR /work
+
+RUN chmod -R a+rwX /work
