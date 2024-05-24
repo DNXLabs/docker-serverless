@@ -1,13 +1,13 @@
-FROM node:20-alpine
+FROM node:14-alpine
 
-ENV SERVERLESS serverless@3.38.0
+ENV SERVERLESS serverless@4.0.26
 
 RUN apk --no-cache update && \
     apk --no-cache add \
         docker \
         python3 \
         python3-dev \
-        py3-pip \
+        py-pip \
         ca-certificates \
         groff \
         less \
@@ -22,10 +22,9 @@ RUN apk --no-cache update && \
         openssh \
         postgresql-dev \
         yarn && \
-    python3 -m venv /venv && \
-    source /venv/bin/activate && \
-    pip install --no-cache-dir awscli virtualenv && \
+    pip --no-cache-dir install awscli virtualenv && \
     update-ca-certificates && \
+    rm -rf /var/cache/apk/* && \
     yarn global add $SERVERLESS
 
 WORKDIR /work
