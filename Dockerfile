@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:20-alpine
 
 ENV SERVERLESS serverless@4.0.35
 
