@@ -1,6 +1,6 @@
 FROM node:20-alpine
 
-ENV SERVERLESS serverless@4.0.35
+ENV SERVERLESS serverless@3.39.0
 
 RUN apk --no-cache update && \
     apk --no-cache add \
