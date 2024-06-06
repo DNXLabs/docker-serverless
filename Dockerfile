@@ -22,9 +22,14 @@ RUN apk --no-cache update && \
         openssh \
         postgresql-dev \
         yarn && \
+    python3 -m venv /opt/venv && \
+    . /opt/venv/bin/activate && \
     pip --no-cache-dir install awscli virtualenv && \
     update-ca-certificates && \
     rm -rf /var/cache/apk/* && \
     yarn global add $SERVERLESS
 
 WORKDIR /work
+
+# Ensure the virtual environment is activated in subsequent RUN instructions
+ENV PATH="/opt/venv/bin:$PATH"
