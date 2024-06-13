@@ -1,6 +1,6 @@
-FROM node:20-alpine
+FROM node:14-alpine
 
-ENV SERVERLESS serverless@3.39.0
+ENV SERVERLESS serverless@4.1.2
 
 RUN apk --no-cache update && \
     apk --no-cache add \
@@ -22,14 +22,9 @@ RUN apk --no-cache update && \
         openssh \
         postgresql-dev \
         yarn && \
-    python3 -m venv /opt/venv && \
-    . /opt/venv/bin/activate && \
     pip --no-cache-dir install awscli virtualenv && \
     update-ca-certificates && \
     rm -rf /var/cache/apk/* && \
     yarn global add $SERVERLESS
 
 WORKDIR /work
-
-# Ensure the virtual environment is activated in subsequent RUN instructions
-ENV PATH="/opt/venv/bin:$PATH"
