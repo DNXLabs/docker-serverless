@@ -12,7 +12,7 @@ Docker image with:
 - aws-sam-cli
 
 ## Author
-App managed by [DNX Solutions](https://github.com/DNXLabs).
+App managed by [DNX Solutions](https://dnx.solutions).
 
 ## License
 MIT Licensed. See [LICENSE](https://github.com/DNXLabs/docker-serverless/blob/master/LICENSE) for full details.
